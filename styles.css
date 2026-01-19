@@ -222,13 +222,25 @@ main {
 .site-header .brand {
     display: flex;
     align-items: center;
+    gap: 0.85rem;
+    padding: 0.55rem 1rem;
+    border-radius: 1.4rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(210, 235, 237, 0.9));
+    box-shadow: 0 12px 24px rgba(0, 137, 148, 0.18);
+    margin-right: auto;
 }
 
 .brand-logo {
-    height: clamp(40px, 5vw, 56px);
+    height: clamp(48px, 6vw, 72px);
     width: auto;
-    max-width: 220px;
+    max-width: 240px;
     object-fit: contain;
+}
+
+.site-header .brand:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 30px rgba(0, 137, 148, 0.24);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .site-nav {
