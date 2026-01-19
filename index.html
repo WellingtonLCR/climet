@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Climet</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-mark">Climet</span>
+        </div>
+        <nav class="site-nav" aria-label="Principal">
+            <button class="menu-toggle" aria-expanded="false" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#quem-somos">Quem somos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#localizacao">Localização</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Bem-vindo à Climet</h1>
+                <p>Construindo experiências digitais com propósito.</p>
+                <a class="cta" href="#servicos">Conheça nossos serviços</a>
+            </div>
+        </section>
+
+        <section id="quem-somos" class="section">
+            <div class="section-inner">
+                <h2 class="section-title">Quem somos</h2>
+                <p>
+                    Somos uma equipe multidisciplinar apaixonada por tecnologia, design e inovação.
+                    Combinamos estratégia, dados e empatia para construir produtos digitais que
+                    geram impacto real nos negócios e na vida das pessoas.
+                </p>
+                <div class="feature-grid">
+                    <article>
+                        <h3>Visão</h3>
+                        <p>Transformar desafios complexos em experiências digitais simples e encantadoras.</p>
+                    </article>
+                    <article>
+                        <h3>Missão</h3>
+                        <p>Conectar marcas às pessoas por meio de soluções digitais que inspirem confiança.</p>
+                    </article>
+                    <article>
+                        <h3>Valores</h3>
+                        <p>Transparência, colaboração e aprendizado contínuo impulsionam nossa cultura.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="section section--accent">
+            <div class="section-inner">
+                <h2 class="section-title">Serviços</h2>
+                <div class="service-cards">
+                    <article>
+                        <h3>Consultoria Digital</h3>
+                        <p>
+                            Diagnóstico, planejamento e roadmap para acelerar a transformação digital da sua
+                            empresa com decisões embasadas em dados.
+                        </p>
+                    </article>
+                    <article>
+                        <h3>Design de Produto</h3>
+                        <p>
+                            UX/UI centrado no usuário, prototipagem rápida e testes iterativos para lançar
+                            produtos memoráveis.
+                        </p>
+                    </article>
+                    <article>
+                        <h3>Desenvolvimento</h3>
+                        <p>
+                            Times ágeis entregando soluções web e mobile escaláveis, seguras e orientadas a
+                            performance.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="clientes" class="section">
+            <div class="section-inner">
+                <h2 class="section-title">Clientes</h2>
+                <p>Parcerias duradouras com organizações que confiam em nossa visão e execução.</p>
+                <div class="client-strip" aria-label="Clientes atendidos">
+                    <span>Nova Terra</span>
+                    <span>Orbital Labs</span>
+                    <span>Futura Saúde</span>
+                    <span>EcoGrid</span>
+                    <span>Zenith Data</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="localizacao" class="section section--accent">
+            <div class="section-inner">
+                <h2 class="section-title">Localização</h2>
+                <p>
+                    Estamos em São Paulo, conectados globalmente. Preferimos encontros presenciais com café
+                    forte, mas estamos sempre disponíveis online para acelerar novas ideias.
+                </p>
+                <div class="location-card">
+                    <div>
+                        <h3>Escritório</h3>
+                        <p>Avenida Inovação, 420 - 12º andar<br />Vila Digital, São Paulo - SP</p>
+                    </div>
+                    <div>
+                        <h3>Horários</h3>
+                        <p>Segunda a sexta: 9h às 18h<br />Sábados: sob consulta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <div class="section-inner">
+                <h2 class="section-title">Contato</h2>
+                <p>Pronto para co-criar o futuro? Fale com nossa equipe:</p>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos sobre seu projeto"></textarea>
+                    </div>
+                    <button type="submit" class="cta">Enviar mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
