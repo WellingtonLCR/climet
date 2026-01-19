@@ -225,8 +225,9 @@ main {
 }
 
 .brand-logo {
-    height: 48px;
+    height: clamp(32px, 4vw, 44px);
     width: auto;
+    max-width: 180px;
     object-fit: contain;
 }
 
