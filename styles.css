@@ -237,6 +237,13 @@ main {
     object-fit: contain;
 }
 
+.brand-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+}
+
 .site-header .brand:hover {
     transform: translateY(-2px);
     box-shadow: 0 18px 30px rgba(0, 137, 148, 0.24);
@@ -254,6 +261,14 @@ main {
     border: 1px solid rgba(0, 137, 148, 0.18);
     text-transform: uppercase;
     white-space: nowrap;
+}
+
+.header-signature {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: var(--color-text);
+    font-weight: 500;
 }
 
 .site-nav {
