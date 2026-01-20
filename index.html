@@ -230,25 +230,80 @@
             </div>
         </section>
 
-        <section id="contato" class="section">
+        <section id="contato" class="section section--accent contact-section">
             <div class="section-inner">
                 <h2 class="section-title">Contato</h2>
                 <p>Fale com nossa equipe médica e agende avaliações, perícias ou treinamentos especializados:</p>
-                <form class="contact-form">
-                    <div class="form-row">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+                <div class="contact-wrapper">
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <span class="contact-chip">Atendimento personalizado</span>
+                            <h3>Vamos cuidar da saúde ocupacional da sua empresa</h3>
+                            <p>Preencha os dados e nosso time retornará com orientação especializada para o seu cenário.</p>
+                        </div>
+                        <form class="contact-form contact-form--enhanced">
+                            <div class="form-row">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+                            </div>
+                            <div class="form-row">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+                            </div>
+                            <div class="form-row">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(14) 99652-5235" required />
+                            </div>
+                            <div class="form-row">
+                                <label for="empresa">Empresa / Órgão</label>
+                                <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" />
+                            </div>
+                            <div class="form-row">
+                                <label for="interesse">Interesse principal</label>
+                                <select id="interesse" name="interesse">
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="pcms">PCMSO e exames ocupacionais</option>
+                                    <option value="pericias">Perícias judiciais e assistências técnicas</option>
+                                    <option value="ergonomia">Segurança e ergonomia</option>
+                                    <option value="treinamentos">Treinamentos e consultorias</option>
+                                    <option value="outros">Outros serviços</option>
+                                </select>
+                            </div>
+                            <div class="form-row form-row--full">
+                                <label for="mensagem">Mensagem</label>
+                                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos sobre sua necessidade"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="cta">Enviar mensagem</button>
+                                <span class="contact-response-time">Retornamos em até um dia útil.</span>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-row">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" required />
-                    </div>
-                    <div class="form-row">
-                        <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos sobre seu projeto"></textarea>
-                    </div>
-                    <button type="submit" class="cta">Enviar mensagem</button>
-                </form>
+                    <aside class="contact-sidebar" aria-label="Canais de contato alternativos">
+                        <div class="contact-media">
+                            <img src="img/contato.jpg" alt="Profissional de atendimento pronta para auxiliar" />
+                        </div>
+                        <div class="contact-sidebar-body">
+                            <h3>Atendimento imediato</h3>
+                            <p>Prefere falar agora? Estamos disponíveis para esclarecer dúvidas e iniciar novos projetos ocupacionais.</p>
+                            <ul class="contact-direct">
+                                <li>
+                                    <span class="contact-direct-label">Telefone fixo</span>
+                                    <a href="tel:5514338416480">(14) 33841-6480</a>
+                                </li>
+                                <li>
+                                    <span class="contact-direct-label">WhatsApp corporativo</span>
+                                    <a href="https://wa.me/5514996525235" target="_blank" rel="noopener">(14) 99652-5235</a>
+                                </li>
+                                <li>
+                                    <span class="contact-direct-label">E-mail</span>
+                                    <a href="mailto:clinmet@clinmet.com.br">clinmet@clinmet.com.br</a>
+                                </li>
+                            </ul>
+                            <a class="contact-cta" href="https://wa.me/5514996525235" target="_blank" rel="noopener">Conversar via WhatsApp</a>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </section>
     </main>
