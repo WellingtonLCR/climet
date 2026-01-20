@@ -2,6 +2,7 @@ const nav = document.querySelector('.site-nav');
 const toggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelectorAll('.nav-list a');
 const headerDate = document.querySelector('.header-date');
+const footerYear = document.querySelector('#footer-year');
 
 const closeMenu = () => {
     nav.classList.remove('is-open');
@@ -38,6 +39,10 @@ if (headerDate) {
         year: 'numeric',
     });
     headerDate.textContent = formatted.charAt(0).toUpperCase() + formatted.slice(1);
+}
+
+if (footerYear) {
+    footerYear.textContent = new Date().getFullYear();
 }
 
 const heroCarousel = document.querySelector('.hero-carousel');
@@ -164,4 +169,16 @@ if (heroCarousel) {
     });
 
     restartAutoplay();
+}
+
+const footerTopLink = document.querySelector('.site-footer__top-link');
+
+if (footerTopLink) {
+    footerTopLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        const target = document.querySelector(footerTopLink.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 }
