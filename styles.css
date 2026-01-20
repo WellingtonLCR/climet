@@ -131,7 +131,7 @@ main {
 
 .client-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1.6rem;
     margin-top: 1.6rem;
     align-items: stretch;
@@ -170,6 +170,26 @@ main {
     font-size: 0.85rem;
     line-height: 1.4;
     color: var(--color-text);
+}
+
+@media (min-width: 1200px) {
+    .client-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .client-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .client-grid figure {
+        padding: 1.2rem 1rem;
+    }
+
+    .client-grid img {
+        max-height: 70px;
+    }
 }
 
 .location-card {
