@@ -164,6 +164,14 @@ main {
     filter: saturate(0.92);
 }
 
+.client-grid figcaption {
+    margin-top: 0.85rem;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--color-text);
+}
+
 .location-card {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
