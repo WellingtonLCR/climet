@@ -36,6 +36,7 @@ main {
     position: relative;
     padding: 6rem 0;
     overflow: hidden;
+    z-index: 0;
 }
 
 .section::after {
@@ -45,11 +46,12 @@ main {
     background: radial-gradient(circle at 8% 12%, rgba(148, 208, 204, 0.35), transparent 40%),
         radial-gradient(circle at 92% 85%, rgba(0, 137, 148, 0.12), transparent 50%);
     pointer-events: none;
-    opacity: 0.9;
+    opacity: 0.55;
+    z-index: -1;
 }
 
 .section.section--accent::after {
-    background: linear-gradient(120deg, rgba(226, 240, 242, 0.9), rgba(215, 238, 239, 0.9));
+    background: linear-gradient(120deg, rgba(226, 240, 242, 0.7), rgba(215, 238, 239, 0.65));
 }
 
 .section-inner {
@@ -147,6 +149,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 0.9rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
