@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap");
 
 :root {
+    /* Color tokens */
     --color-bg: #f5fbfc;
     --color-bg-accent: #e2f0f2;
     --color-surface: #ffffff;
@@ -10,6 +11,32 @@
     --color-text: #12343b;
     --color-muted: #4c6d74;
     --color-line: #d4e4e7;
+
+    /* Typography tokens */
+    --font-family-base: "IBM Plex Sans", sans-serif;
+    --font-family-heading: "IBM Plex Sans", sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.35rem;
+    --line-height-base: 1.6;
+
+    /* Spacing tokens */
+    --space-xxs: 0.35rem;
+    --space-xs: 0.6rem;
+    --space-sm: 0.9rem;
+    --space-md: 1.4rem;
+    --space-lg: 2rem;
+    --space-xl: 3.2rem;
+
+    /* Radius tokens */
+    --radius-sm: 0.6rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+
+    /* Shadow tokens */
+    --shadow-soft: 0 14px 28px rgba(18, 52, 59, 0.08);
+    --shadow-strong: 0 22px 36px rgba(18, 52, 59, 0.12);
+
     --max-width: 1200px;
 }
 
@@ -20,16 +47,43 @@
 }
 
 body {
-    font-family: "IBM Plex Sans", sans-serif;
-    background: linear-gradient(160deg, #f5fbfc 0%, #ecf6f8 55%, #e1eef0 100%);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    background: linear-gradient(160deg, var(--color-bg) 0%, #ecf6f8 55%, #e1eef0 100%);
     color: var(--color-text);
     min-height: 100vh;
+}
+
+:focus-visible {
+    outline: 3px solid rgba(0, 137, 148, 0.65);
+    outline-offset: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1.5rem;
+    top: -4rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    background: var(--color-primary-dark);
+    color: var(--color-surface);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: top 0.2s ease, transform 0.2s ease;
+    z-index: 2000;
+}
+
+.skip-link:focus-visible {
+    top: 1.2rem;
+    transform: translateY(0);
 }
 
 main {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: clamp(2.2rem, 5vw, 4rem);
 }
 
 .site-footer {
@@ -191,7 +245,7 @@ main {
 }
 
 .site-footer__top-link:hover,
-.site-footer__top-link:focus {
+.site-footer__top-link:focus-visible {
     background: rgba(255, 255, 255, 0.22);
     transform: translateY(-1px);
 }
@@ -245,7 +299,7 @@ main {
 
 .section {
     position: relative;
-    padding: 4rem 0;
+    padding: clamp(2.6rem, 6vw, 3.8rem) 0;
     overflow: hidden;
     z-index: 0;
 }
@@ -272,7 +326,7 @@ main {
     padding: 0 1.8rem;
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: clamp(1.2rem, 2.8vw, 1.8rem);
 }
 
 .section-title {
@@ -292,34 +346,14 @@ main {
     color: var(--color-text);
 }
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.8rem;
-}
-
-.feature-grid article {
-    padding: 1.6rem;
-    border-radius: 1.2rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-line);
-    box-shadow: 0 18px 36px rgba(18, 52, 59, 0.08);
-}
-
-.feature-grid h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.8rem;
-    color: var(--color-primary-dark);
-}
-
 .service-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.6rem;
+    gap: clamp(1.1rem, 3vw, 1.8rem);
 }
 
 .service-cards article {
-    padding: 1.9rem 1.8rem;
+    padding: clamp(1.5rem, 3.4vw, 1.9rem) clamp(1.4rem, 3vw, 1.8rem);
     border-radius: 1.4rem;
     background: linear-gradient(150deg, rgba(255, 255, 255, 0.92), rgba(226, 240, 242, 0.9));
     border: 1px solid var(--color-line);
@@ -345,8 +379,8 @@ main {
 .client-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1.6rem;
-    margin-top: 1.6rem;
+    gap: clamp(1.1rem, 3vw, 1.6rem);
+    margin-top: clamp(1.1rem, 3vw, 1.6rem);
     align-items: stretch;
 }
 
@@ -430,7 +464,7 @@ main {
 .location-wrapper {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 2.4rem;
+    gap: clamp(1.6rem, 4vw, 2.4rem);
     align-items: stretch;
 }
 
@@ -444,7 +478,7 @@ main {
     background: rgba(255, 255, 255, 0.88);
     border: 1px solid rgba(18, 52, 59, 0.08);
     border-radius: 1.35rem;
-    padding: 1.85rem;
+    padding: clamp(1.45rem, 3vw, 1.85rem);
     box-shadow: 0 18px 32px rgba(18, 52, 59, 0.08);
 }
 
@@ -512,7 +546,7 @@ main {
 }
 
 .location-directions-link:hover,
-.location-directions-link:focus {
+.location-directions-link:focus-visible {
     background: rgba(0, 137, 148, 0.24);
     transform: translateX(3px);
 }
@@ -541,6 +575,15 @@ main {
     .location-map {
         min-height: 300px;
     }
+
+    .news-card {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto;
+    }
+
+    .news-media {
+        order: -1;
+    }
 }
 
 @media (max-width: 600px) {
@@ -560,13 +603,13 @@ main {
 
 
 .contact-section .section-inner {
-    gap: 2.5rem;
+    gap: clamp(1.8rem, 4vw, 2.5rem);
 }
 
 .contact-wrapper {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
-    gap: 2rem;
+    gap: clamp(1.4rem, 4vw, 2rem);
     align-items: stretch;
 }
 
@@ -574,11 +617,11 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
+    gap: clamp(1.3rem, 3vw, 1.8rem);
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(18, 52, 59, 0.08);
     border-radius: 1.5rem;
-    padding: 2.05rem;
+    padding: clamp(1.6rem, 3.4vw, 2.05rem);
     box-shadow: 0 22px 36px rgba(18, 52, 59, 0.12);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
@@ -707,7 +750,7 @@ main {
 .contact-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: clamp(1.2rem, 3vw, 1.6rem);
     background: rgba(255, 255, 255, 0.78);
     border: 1px solid rgba(18, 52, 59, 0.1);
     border-radius: 1.5rem;
@@ -724,8 +767,8 @@ main {
 .contact-sidebar-body {
     display: flex;
     flex-direction: column;
-    gap: 0.95rem;
-    padding: 1.7rem 1.9rem 2rem;
+    gap: clamp(0.8rem, 2.2vw, 1rem);
+    padding: clamp(1.4rem, 3vw, 1.7rem) clamp(1.5rem, 3.2vw, 1.9rem) clamp(1.6rem, 3.4vw, 2rem);
 }
 
 .contact-sidebar-body h3 {
@@ -768,7 +811,7 @@ main {
 }
 
 .contact-direct a:hover,
-.contact-direct a:focus {
+.contact-direct a:focus-visible {
     text-decoration: underline;
     transform: translateX(2px);
 }
@@ -788,7 +831,7 @@ main {
 }
 
 .contact-cta:hover,
-.contact-cta:focus {
+.contact-cta:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 14px 24px rgba(0, 137, 148, 0.24);
 }
@@ -1013,22 +1056,22 @@ main {
 }
 
 .nav-list a:hover,
-.nav-list a:focus {
+.nav-list a:focus-visible {
     color: var(--color-surface);
     background: var(--color-primary);
-    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
 }
 
 .hero {
     max-width: var(--max-width);
-    margin: 4.1rem auto;
+    margin: clamp(2.6rem, 6vw, 4rem) auto;
     padding: 0 1.8rem;
 }
 
 .hero-inner {
     display: grid;
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    gap: 2.4rem;
+    gap: clamp(1.6rem, 4vw, 2.4rem);
     align-items: stretch;
 }
 
@@ -1036,7 +1079,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1.35rem;
-    padding: 2.2rem;
+    padding: clamp(1.7rem, 3.4vw, 2.2rem);
     border-radius: 1.6rem;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(224, 241, 242, 0.9));
     box-shadow: 0 28px 48px rgba(0, 137, 148, 0.12);
@@ -1146,10 +1189,9 @@ main {
 }
 
 .hero-carousel__control:hover,
-.hero-carousel__control:focus {
+.hero-carousel__control:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 12px 22px rgba(0, 97, 114, 0.24);
-    outline: none;
 }
 
 .hero-slide--logo {
@@ -1192,7 +1234,7 @@ main {
     transform: scale(1.3);
 }
 
-.hero-carousel__indicator:focus {
+.hero-carousel__indicator:focus-visible {
     outline: 2px solid rgba(0, 137, 148, 0.25);
     outline-offset: 2px;
 }
@@ -1248,6 +1290,14 @@ main {
         font-size: 0.82rem;
         padding: 0.85rem 1rem;
     }
+
+    .news-card {
+        gap: 1.2rem;
+    }
+
+    .news-content {
+        padding: 1.4rem;
+    }
 }
 
 @keyframes footerGlow {
@@ -1285,7 +1335,7 @@ main {
 }
 
 .cta:hover,
-.cta:focus {
+.cta:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 14px 26px rgba(0, 137, 148, 0.25);
 }
@@ -1358,9 +1408,10 @@ main {
     padding-top: 0;
 }
 
+.news-card {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
-    gap: 1.5rem;
+    gap: clamp(1.1rem, 3vw, 1.5rem);
     align-items: center;
     background: var(--color-surface);
     border-radius: 1.4rem;
