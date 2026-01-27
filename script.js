@@ -3,6 +3,57 @@ const toggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelectorAll('.nav-list a');
 const headerDate = document.querySelector('.header-date');
 const footerYear = document.querySelector('#footer-year');
+const topbar = document.querySelector('#site-topbar');
+const topbarToggle = document.querySelector('.topbar-toggle');
+
+const TOPBAR_COLLAPSE_BREAKPOINT = 1024;
+const TOPBAR_AUTO_COLLAPSE_DELAY = 5000;
+let wasMobileViewport = window.innerWidth < TOPBAR_COLLAPSE_BREAKPOINT;
+let topbarAutoCollapseTimer;
+
+const setTopbarCollapsed = (collapsed) => {
+    if (!topbar || !topbarToggle) return;
+    topbar.classList.toggle('is-collapsed', collapsed);
+    topbarToggle.setAttribute('aria-expanded', String(!collapsed));
+    topbarToggle.classList.toggle('topbar-toggle--collapsed', collapsed);
+    topbarToggle.textContent = collapsed
+        ? 'Mostrar informações de contato'
+        : 'Ocultar informações de contato';
+};
+
+const cancelTopbarAutoCollapse = () => {
+    if (topbarAutoCollapseTimer) {
+        clearTimeout(topbarAutoCollapseTimer);
+        topbarAutoCollapseTimer = undefined;
+    }
+};
+
+const scheduleTopbarAutoCollapse = () => {
+    if (!topbar || !topbarToggle) return;
+    cancelTopbarAutoCollapse();
+    topbarAutoCollapseTimer = window.setTimeout(() => {
+        setTopbarCollapsed(true);
+    }, TOPBAR_AUTO_COLLAPSE_DELAY);
+};
+
+const applyTopbarResponsiveBehavior = (forceShowForMobile = false) => {
+    if (!topbar || !topbarToggle) return;
+
+    const isMobileViewport = window.innerWidth < TOPBAR_COLLAPSE_BREAKPOINT;
+    topbarToggle.hidden = !isMobileViewport;
+
+    if (isMobileViewport) {
+        if (forceShowForMobile || !wasMobileViewport) {
+            setTopbarCollapsed(false);
+            scheduleTopbarAutoCollapse();
+        }
+    } else {
+        cancelTopbarAutoCollapse();
+        setTopbarCollapsed(false);
+    }
+
+    wasMobileViewport = isMobileViewport;
+};
 
 const closeMenu = () => {
     nav.classList.remove('is-open');
@@ -13,6 +64,21 @@ if (toggle) {
     toggle.addEventListener('click', () => {
         const isOpen = nav.classList.toggle('is-open');
         toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+}
+
+if (topbar && topbarToggle) {
+    applyTopbarResponsiveBehavior(true);
+
+    topbarToggle.addEventListener('click', () => {
+        const isCollapsed = topbar.classList.contains('is-collapsed');
+        setTopbarCollapsed(!isCollapsed);
+
+        if (isCollapsed) {
+            scheduleTopbarAutoCollapse();
+        } else {
+            cancelTopbarAutoCollapse();
+        }
     });
 }
 
@@ -27,6 +93,19 @@ navLinks.forEach((link) => {
 window.addEventListener('resize', () => {
     if (window.innerWidth > 820 && nav.classList.contains('is-open')) {
         closeMenu();
+    }
+
+    if (topbar && topbarToggle) {
+        const previousState = wasMobileViewport;
+        applyTopbarResponsiveBehavior();
+
+        if (window.innerWidth < TOPBAR_COLLAPSE_BREAKPOINT && !topbar.classList.contains('is-collapsed')) {
+            if (!previousState) {
+                scheduleTopbarAutoCollapse();
+            }
+        } else if (window.innerWidth >= TOPBAR_COLLAPSE_BREAKPOINT) {
+            cancelTopbarAutoCollapse();
+        }
     }
 });
 

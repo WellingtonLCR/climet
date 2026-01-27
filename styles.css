@@ -903,6 +903,18 @@ main {
     background: linear-gradient(90deg, rgba(226, 240, 242, 0.55), rgba(210, 235, 237, 0.4));
     font-size: 0.82rem;
     color: var(--color-muted);
+    max-height: 260px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.topbar.is-collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .topbar-contact {
@@ -1522,6 +1534,12 @@ main {
     .topbar-meta {
         width: 100%;
         justify-content: space-between;
+    }
+
+    .topbar.is-collapsed {
+        margin: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     .header-main {
