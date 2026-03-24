@@ -1098,6 +1098,13 @@ footer[id] {
     display: flex;
     align-items: center;
     gap: 1.05rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.header-brand:hover .brand-name,
+.header-brand:focus-visible .brand-name {
+    color: var(--color-primary);
 }
 
 .brand-logo {
