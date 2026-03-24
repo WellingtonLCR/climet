@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap");
-
 :root {
     /* Color tokens */
     --color-bg: #f5fbfc;
@@ -55,6 +53,10 @@ body {
     min-height: 100vh;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :focus-visible {
     outline: 3px solid rgba(0, 137, 148, 0.65);
     outline-offset: 4px;
@@ -84,6 +86,24 @@ main {
     display: flex;
     flex-direction: column;
     gap: clamp(2.2rem, 5vw, 4rem);
+}
+
+@supports (content-visibility: auto) {
+
+    .highlight,
+    .section,
+    .site-footer {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 760px;
+    }
+
+    .section.news {
+        contain-intrinsic-size: 1px 560px;
+    }
+
+    .site-footer {
+        contain-intrinsic-size: 1px 460px;
+    }
 }
 
 .site-footer {
@@ -290,6 +310,7 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .site-footer__column a,
     .site-footer__top-link,
     .site-footer__cta {
@@ -403,6 +424,14 @@ main {
 .client-grid figure:focus-within {
     transform: translateY(-6px);
     box-shadow: 0 20px 36px rgba(0, 137, 148, 0.16);
+}
+
+.client-grid picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 80px;
 }
 
 .client-grid img {
@@ -587,6 +616,7 @@ main {
 }
 
 @media (max-width: 600px) {
+
     .location-directions,
     .location-card {
         padding: 1.6rem;
@@ -762,6 +792,16 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.news-media {
+    min-height: 100%;
+}
+
+.news-media picture,
+.contact-media picture {
+    display: block;
+    height: 100%;
 }
 
 .contact-sidebar-body {
@@ -1313,21 +1353,25 @@ main {
 }
 
 @keyframes footerGlow {
+
     0%,
     100% {
         transform: translate3d(0, 0, 0) scale(1);
     }
+
     50% {
         transform: translate3d(10px, -12px, 0) scale(1.06);
     }
 }
 
 @keyframes pulseAccent {
+
     0%,
     100% {
         transform: scale(1);
         opacity: 0.55;
     }
+
     50% {
         transform: scale(1.08);
         opacity: 0.8;
@@ -1472,7 +1516,7 @@ main {
     align-items: start;
 }
 
-.about-intro p + p {
+.about-intro p+p {
     margin-top: 1.2rem;
 }
 
@@ -1616,6 +1660,7 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
