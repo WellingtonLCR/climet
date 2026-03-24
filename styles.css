@@ -628,10 +628,15 @@ footer[id] {
     .news-card {
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: auto auto;
+        min-height: auto;
     }
 
     .news-media {
         order: -1;
+    }
+
+    .news-media--insight {
+        min-height: 260px;
     }
 }
 
@@ -1369,10 +1374,15 @@ footer[id] {
     }
 
     .news-card {
-        gap: 1.2rem;
+        min-height: auto;
     }
 
     .news-content {
+        padding: 1.4rem;
+    }
+
+    .news-media--insight {
+        min-height: 230px;
         padding: 1.4rem;
     }
 }
@@ -1508,11 +1518,11 @@ a.cta[target="_blank"]::after,
 
 .news-card {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
-    gap: clamp(1.1rem, 3vw, 1.5rem);
-    align-items: center;
+    grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+    align-items: stretch;
     background: var(--color-surface);
     overflow: hidden;
+    min-height: clamp(300px, 34vw, 390px);
 }
 
 .news-media img {
@@ -1524,12 +1534,12 @@ a.cta[target="_blank"]::after,
 
 .news-media--insight {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 0.9rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-items: start;
+    gap: 1.1rem;
     min-height: 100%;
-    padding: clamp(1.6rem, 4vw, 2rem);
+    padding: clamp(1.8rem, 4vw, 2.35rem);
     background: linear-gradient(160deg, rgba(0, 97, 114, 0.96), rgba(0, 137, 148, 0.84));
     color: var(--color-surface);
     overflow: hidden;
@@ -1577,7 +1587,8 @@ a.cta[target="_blank"]::after,
 }
 
 .news-media__headline {
-    max-width: 17rem;
+    max-width: 13ch;
+    align-self: end;
     font-size: clamp(1.35rem, 2.5vw, 1.85rem);
     line-height: 1.18;
 }
@@ -1594,8 +1605,9 @@ a.cta[target="_blank"]::after,
 .news-content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 0.8rem;
-    padding: 1.75rem;
+    padding: clamp(1.8rem, 4vw, 2.3rem);
 }
 
 .news-content .cta {
